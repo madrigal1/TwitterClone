@@ -5,13 +5,14 @@ import * as React from "react";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import TabOneScreen from "../screens/TabOneScreen";
+import HomeScreen from "../screens/HomeScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   BottomTabParamList,
   HomeNavigatorParamList,
   TabTwoParamList,
 } from "../types";
+import ProfilePicture from "../components/ProfilePicture";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -74,14 +75,14 @@ function TabBarIcon(props: { name: string; color: string }) {
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<HomeNavigatorParamList>();
+const HomeScreenStack = createStackNavigator<HomeNavigatorParamList>();
 
 function HomeNavigator() {
   return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
+    <HomeScreenStack.Navigator>
+      <HomeScreenStack.Screen
         name="HomeScreen"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={{
           headerTitle: () => {
             return (
@@ -101,13 +102,24 @@ function HomeNavigator() {
               />
             );
           },
+          headerLeft: () => (
+            <ProfilePicture
+              size={35}
+              image={
+                "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80b"
+              }
+            />
+          ),
           headerRightContainerStyle: {
             marginRight: 15,
+          },
+          headerLeftContainerStyle: {
+            marginLeft: 15,
           },
           headerTitleAlign: "center",
         }}
       />
-    </TabOneStack.Navigator>
+    </HomeScreenStack.Navigator>
   );
 }
 
