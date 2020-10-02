@@ -30,6 +30,14 @@ const styles = StyleSheet.create({
     marginTop: 8,
     lineHeight: 18,
   },
+  image: {
+    width: "100%",
+    height: 200,
+    borderRadius: 15,
+    resizeMode: "cover",
+    overflow: "hidden",
+    marginVertical: 10,
+  },
 });
 
 export default styles;
