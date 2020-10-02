@@ -4,6 +4,7 @@ import { TweetType } from "../../../types";
 
 import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
+import Footer from "./Footer";
 
 export type MainContainerProps = {
   tweet: TweetType;
@@ -24,6 +25,8 @@ const MainContainer = ({ tweet }: MainContainerProps) => (
       <Text style={styles.content}>{tweet.content}</Text>
       {!!tweet.image && <Image source={{ uri: tweet.image }} />}
     </View>
+
+    <Footer />
   </View>
 );
 
