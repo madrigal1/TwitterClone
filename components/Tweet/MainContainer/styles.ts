@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     color: "grey",
   },
   content: {
-    marginTop: 8,
+    marginVertical: 5,
     lineHeight: 18,
   },
   image: {
